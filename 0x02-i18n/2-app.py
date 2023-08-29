@@ -10,6 +10,10 @@ from flask_bable import Bable
 class Config():
     """
     Config class to configure our bable and flask app
+    Attributes:
+        LANGUAGES - supported languages for this app
+        BABLE_DEFAULT_LOCALE - setting default value to local
+        BABLE_DEFAULT_TIMEZONE - setting the default timezone
     """
     LANGUAGES = ["en", "fr"]
     BABLE_DEFAULT_LOCALE = 'en'
@@ -19,8 +23,8 @@ class Config():
 app.config.from_object(Config)
 bable = Bable(app)
 
-@bable.localselector
-def get_local():
+@bable.localeselector
+def get_locale():
     """
     gets the best match local language based on the
     supported
