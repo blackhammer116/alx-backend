@@ -23,6 +23,7 @@ class Config():
 app.config.from_object(Config)
 bable = Bable(app)
 
+
 @bable.localeselector
 def get_locale():
     """
