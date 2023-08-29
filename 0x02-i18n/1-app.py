@@ -3,9 +3,8 @@
 Flask: mdoule to run our app
 Bable: configuring our flask app
 """
-from flask import Flask, render_template
+from flask import Flask
 from flask_bable import Bable
-from pytz import timezone
 
 
 class Config():
