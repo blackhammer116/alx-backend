@@ -13,14 +13,9 @@ class Config():
     Config class to configure our bable and flask app
     """
     LANGUAGES = ["en", "fr"]
-    utc = pytz.utc
-
-app = Flask(__name__)
-bable = Bable(app, default_locale = Config.LANGUAGES[0], default_timezone = Config.utc.zone)
+    BABLE_DEFAULT_LOCALE = 'en'
+    BABLE_DEFAULT_TIMEZONE = 'UTC'
 
 
-@app.route('/')
-def index():
-    """
-    """
-    return render_template('1-index.html')
+app.config.from_object(Config)
+bable = Bable(app)
