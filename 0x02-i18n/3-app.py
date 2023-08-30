@@ -16,7 +16,8 @@ babel = Babel(app)
 @app.route('/')
 def index():
     """
-    index function is used to direct the route towards the translations
+    index function is used inorder to direct the route towards the
+    translations
     """
     home_title = _("Welcome to Holberton")
     home_header = _("Hello world!")

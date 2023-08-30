@@ -12,7 +12,7 @@ class Config():
     Config class to configure our bable and flask app
     Attributes:
         LANGUAGES - supported languages for this app
-        BABLE_DEFAULT_LOCALE - setting default value to local
+        BABLE_DEFAULT_LOCALE - setting default babel value to local
         BABLE_DEFAULT_TIMEZONE - setting the default timezone
     """
     LANGUAGES = ["en", "fr"]
