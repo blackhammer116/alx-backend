@@ -11,7 +11,7 @@ app = Flask(__name__)
 babel = Babel(app)
 
 SUPPORTED_LOCALE = ['fr', 'en']
-DEFAULT_LOCALE = 'en'
+DEFAULT_LOCALE = 'fr'
 
 @babel.localeselector
 def get_locale():
