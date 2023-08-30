@@ -4,7 +4,7 @@ Flask: mdoule to run our app
 Bable: configuring our flask app
 """
 from flask import Flask, request
-from flask_bable import Bable
+from flask_babel import Babel
 
 
 class Config():
@@ -16,12 +16,13 @@ class Config():
         BABLE_DEFAULT_TIMEZONE - setting the default timezone
     """
     LANGUAGES = ["en", "fr"]
-    BABLE_DEFAULT_LOCALE = 'en'
-    BABLE_DEFAULT_TIMEZONE = 'UTC'
+    BABEL_DEFAULT_LOCALE = 'en'
+    BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
+app = Flask(__name__)
 app.config.from_object(Config)
-bable = Bable(app)
+babel = Babel(app)
 
 @babel.localeselector
 def get_locale():
