@@ -5,6 +5,7 @@ Creating a caching Module that implements FIFO
 
 BaseCaching = __import__('base_caching').BaseCaching
 
+
 class FIFOCache(BaseCaching):
     """
     A caching class that implements a FIFO algorithim
@@ -30,8 +31,8 @@ class FIFOCache(BaseCaching):
             else:
                 removed_item = next(iter(self.cache_data))
                 del self.cache_data[next(iter(self.cache_data))]
-                print(f"DISCARD: {removed_item}")
                 self.cache_data[key] = item
+                print(f"DISCARD: {removed_item}")
 
     def get(self, key):
         """

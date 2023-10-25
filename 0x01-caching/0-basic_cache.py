@@ -5,6 +5,7 @@ Creating a basic cache
 
 BaseCaching = __import__('base_caching').BaseCaching
 
+
 class BasicCache(BaseCaching):
     """
     BasicCache class that inherits from the parent(super) class
