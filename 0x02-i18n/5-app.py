@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """
+all are used for this task
 """
 from typing import Dict, Any
 import requests
@@ -17,6 +18,7 @@ app = Flask(__name__)
 
 def get_user() -> Dict:
     """
+    A function that gets the user id from the url arg
     """
     user_id = requests.args.get('login_as')
     if user_id is not None or user_id in users:
@@ -26,6 +28,7 @@ def get_user() -> Dict:
 @app.before_request
 def before_request() -> Any:
     """
+    the function that gets called from anyothers
     """
     get_u = get_user()
     home_header = _("Hello World!")
