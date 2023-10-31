@@ -2,10 +2,12 @@
 """
 all are used for this task
 """
+import pytz
 from typing import Dict, Any
 import requests
 from flask_babel import Babel
-from flask import Flask, g, render_template
+from flask import Flask, g, render_template, request
+from babel.dates import get_timezone, timezone_selector
 
 
 users = {
@@ -32,6 +34,30 @@ def get_locale():
         return locale
     return DEFAULT_LOCALE
 
+@timezone_selector
+def get_timezone():
+    """
+    A function to get the timezone
+    """
+    user = get_user()
+    timezone = users[user]["timezone"]
+    if timezone:
+        try:
+            pytz.timezone(timezone)
+            return timezone
+        except pytz.UnknownTimeZoneError:
+            pass
+    """
+    user_timezone = get_user_timezone()
+    if user_timezone:
+        try:
+            pytz.timezone(user_timezone)
+            return user_timezone
+        except pytz.UnknownTimeZoneError:
+            pass
+    """
+    return 'UTC'
+
 def get_user() -> Dict:
     """
     A function that gets the user id from the url arg
@@ -52,14 +78,14 @@ def before_request() -> Any:
         g.user = get_u
         logged_in_as = _("You are logged in as {}.".format(users[get_u]["name"]))
         return render_template(
-                '6-index.html',
+                '7-index.html',
                 header=home_header,
                 logged_in_as=logged_in_as
                 )
     not_logged_in = _("You are not logged in.")
 
     return render_template(
-            '6-index.html',
+            '7-index.html',
             header=home_header
             not_logged_in=not_logged_in
             )
