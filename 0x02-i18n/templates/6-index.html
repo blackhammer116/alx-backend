@@ -1,0 +1,13 @@
+<!Doctype html>
+<html>
+        <head>
+		<title id = "home_title">{{ _('Welcome to Holberton') }}</title>
+        </head>
+        <header>
+		<h1 id = "home_header">{{ _('Hello world!') }}</h1>
+        </header>
+	<body>
+		<h2 id = "logged_in_as">{{ _('You are logged in as {}.'.format(users[get_u]["name"])) }}</h2>
+		<h2 id = "not_logged_in">{{ _('You are not logged in.') }}</h2>
+	</body>
+</html>
